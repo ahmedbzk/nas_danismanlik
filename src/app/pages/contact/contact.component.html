@@ -1,0 +1,104 @@
+<app-hero [title]="'contact.title' | translate" [subtitle]="'contact.subtitle' | translate"></app-hero>
+<div class="contact-page">
+  <div class="container" style="padding-bottom: 80px; position: relative; z-index: 2;">
+    <img src="assets/logos/nasLogo4.png" alt="NAS Danışmanlık" class="watermark-logo">
+    <div class="contact-layout">
+      
+      <div class="contact-info" style="display: flex; flex-direction: column; justify-content: flex-start; padding-top: 1rem;">
+        <h2 class="subtitle">{{ 'contact.reachUs' | translate }}</h2>
+        <p class="desc">
+          {{ 'contact.desc' | translate }}
+        </p>
+        
+        <div class="info-item">
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div class="text">
+            <strong>{{ 'contact.address' | translate }}</strong>
+            <p [innerHTML]="'footer.addressVal' | translate"></p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </div>
+          <div class="text">
+            <strong>{{ 'contact.phone' | translate }}</strong>
+            <p><a href="tel:+905302907764">+90 530 290 77 64</a></p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <div class="text">
+            <strong>{{ 'contact.email' | translate }}</strong>
+            <p><a href="mailto:info@nasdanismanlik.com">info&#64;nasdanismanlik.com</a></p>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="contact-form glass-panel sweet-panel" style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 class="subtitle">{{ 'contact.sendMessage' | translate }}</h2>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">{{ 'contact.name' | translate }}</label>
+            <input type="text" id="name" formControlName="name"
+              [placeholder]="'contact.namePlaceholder' | translate"
+              class="form-control sweet-input"
+              [class.is-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" />
+            <span class="field-error" *ngIf="err('name')">{{ err('name') }}</span>
+          </div>
+          <div class="form-group">
+            <label for="email">{{ 'contact.emailInput' | translate }}</label>
+            <input type="email" id="email" formControlName="email"
+              [placeholder]="'contact.emailPlaceholder' | translate"
+              class="form-control sweet-input"
+              [class.is-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" />
+            <span class="field-error" *ngIf="err('email')">{{ err('email') }}</span>
+          </div>
+          <div class="form-group">
+            <label for="subject">{{ 'contact.subject' | translate }}</label>
+            <input type="text" id="subject" formControlName="subject"
+              [placeholder]="'contact.subjectPlaceholder' | translate"
+              class="form-control sweet-input"
+              [class.is-invalid]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched" />
+            <span class="field-error" *ngIf="err('subject')">{{ err('subject') }}</span>
+          </div>
+          <div class="form-group">
+            <label for="message">{{ 'contact.message' | translate }}</label>
+            <textarea id="message" rows="5" formControlName="message"
+              [placeholder]="'contact.messagePlaceholder' | translate"
+              class="form-control sweet-input"
+              [class.is-invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"></textarea>
+            <span class="field-error" *ngIf="err('message')">{{ err('message') }}</span>
+          </div>
+          <button type="submit" class="btn btn-primary submit-btn sweet-btn" [disabled]="isSubmitting">
+            @if (isSubmitting) {
+              <span class="form-spinner"></span> Gönderiliyor...
+            } @else {
+              {{ 'contact.submitBtn' | translate }}
+            }
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="full-width-map">
+    <iframe 
+      src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=tr&amp;q=Z%C3%BCmr%C3%BCtevler%20Mah.%20Nurhan%20Sk.%20No:70%20Maltepe/%C4%B0stanbul+(NAS%20Dan%C4%B1%C5%9Fmanl%C4%B1k)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
+      width="100%" 
+      height="450" 
+      style="border:0; display: block;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="assets/logos/nasLogo4.png" alt="NAS Danışmanlık" />
+      <h3>Admin</h3>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <i class="icon-dashboard"></i> Dashboard
+          </a>
+        </li>
+        <li class="has-submenu">
+          <div class="nav-header">
+            <i class="icon-contact"></i> İletişim
+          </div>
+          <ul class="submenu">
+            <li>
+              <a routerLink="/admin/contacts" routerLinkActive="active">İletişim Talepleri</a>
+            </li>
+            <li>
+              <a routerLink="/admin/subscribers" routerLinkActive="active">Aboneler</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="user-info">
+      <div class="user-details">
+        <span class="welcome-text">Hoş Geldin,</span>
+        <span class="username">{{ username }}</span>
+      </div>
+      <div class="user-actions">
+        <button class="settings-btn" (click)="openSettings()" title="Şifre Değiştir">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
+      </div>
+    </div>
+    
+    <button class="logout-btn" (click)="onLogout()">Çıkış Yap</button>
+  </aside>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+<!-- Şifre Değiştirme Modalı -->
+@if (isSettingsOpen) {
+  <div class="modal-overlay" (click)="closeSettings()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Şifre Değiştir</h3>
+        <button class="close-btn" (click)="closeSettings()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onChangePassword()" #pwForm="ngForm">
+          <div class="form-group">
+            <label>Mevcut Şifreniz</label>
+            <input type="password" [(ngModel)]="passwords.current" name="current" required autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label>Yeni Şifreniz</label>
+            <input type="password" [(ngModel)]="passwords.new" name="new" required autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label>Yeni Şifreniz (Tekrar)</label>
+            <input type="password" [(ngModel)]="passwords.confirm" name="confirm" required autocomplete="off" />
+          </div>
+          
+          @if (passwordError) {
+            <div class="error-msg">{{ passwordError }}</div>
+          }
+          
+          <button type="submit" class="save-btn" [disabled]="!pwForm.valid || isChanging">
+            {{ isChanging ? 'Kaydediliyor...' : 'Şifreyi Güncelle' }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+}

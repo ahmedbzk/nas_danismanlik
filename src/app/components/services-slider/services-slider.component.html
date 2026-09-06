@@ -1,0 +1,30 @@
+<section class="services-marquee-section section bg-light animate-on-scroll fade-in-up">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{{ 'home.services.title' | translate }}</h2>
+      <div class="title-line center"></div>
+      <p class="section-desc">{{ 'home.services.desc' | translate }}</p>
+    </div>
+  </div>
+  
+  <div class="marquee-container">
+    <div class="marquee-track">
+      <ng-container *ngFor="let item of [1,2]">
+        @for (service of services; track service.title) {
+        <div class="marquee-card">
+          <img [src]="'assets/images/services/' + service.img" [alt]="service.title">
+          <div class="marquee-content">
+            <h4>{{ service.title }}</h4>
+            <p>{{ service.desc }}</p>
+            <a [routerLink]="service.link" class="service-link">{{ 'home.services.inspect' | translate }} &rarr;</a>
+          </div>
+        </div>
+        }
+      </ng-container>
+    </div>
+  </div>
+  
+  <div class="text-center" style="text-align: center; margin-top: 50px;">
+    <a routerLink="/hizmetler/avm-kiralama" class="btn-custom primary-outline">{{ 'home.services.btnAll' | translate }}</a>
+  </div>
+</section>

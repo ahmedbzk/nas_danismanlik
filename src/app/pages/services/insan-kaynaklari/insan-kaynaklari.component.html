@@ -1,0 +1,107 @@
+<app-hero [title]="'services.ik.heroTitle' | translate" [subtitle]="'services.ik.heroSubtitle' | translate"></app-hero>
+
+<div class="page-padding container">
+  <div class="glass-panel main-intro">
+    <h2 class="title">{{ 'services.ik.title' | translate }}</h2>
+    <h4 class="subtitle text-primary mb-3">{{ 'services.ik.subtitle' | translate }}</h4>
+    <p class="desc">{{ 'services.ik.desc' | translate }}</p>
+  </div>
+
+  <div class="service-details-layout mt-5">
+
+    <aside class="service-sidebar">
+      <ul class="sidebar-menu">
+        <li [class.active]="activeSection === 'sec-1'"><a (click)="scrollToSection('sec-1')">{{ ('services.ik.sections'
+            | translate)[0].title }}</a></li>
+        <li [class.active]="activeSection === 'sec-2'"><a (click)="scrollToSection('sec-2')">{{ ('services.ik.sections'
+            | translate)[1].title }}</a></li>
+        <li [class.active]="activeSection === 'sec-3'"><a (click)="scrollToSection('sec-3')">{{ ('services.ik.sections'
+            | translate)[2].title }}</a></li>
+        <li [class.active]="activeSection === 'sec-4'"><a (click)="scrollToSection('sec-4')">{{ ('services.ik.sections'
+            | translate)[3].title }}</a></li>
+        <li [class.active]="activeSection === 'sec-5'"><a (click)="scrollToSection('sec-5')">{{ ('services.ik.sections'
+            | translate)[4].title }}</a></li>
+        <li [class.active]="activeSection === 'sec-6'"><a (click)="scrollToSection('sec-6')">{{ ('services.ik.sections'
+            | translate)[5].title }}</a></li>
+      </ul>
+
+      <app-sidebar-contact [pageTitle]="'services.ik.title' | translate"></app-sidebar-contact>
+    </aside>
+
+    <div class="service-content">
+
+      <section id="sec-1" class="content-section glass-panel">
+        <div class="section-image">
+          <img src="assets/images/services/photo-1522071820081-009f0129c71c.jpg" alt="Section 1">
+          <div class="section-number">01</div>
+        </div>
+        <div class="section-body">
+          <h3>{{ ('services.ik.sections' | translate)[0].title }}</h3>
+          <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.6;">{{ ('services.ik.sections' |
+            translate)[0].desc }}</p>
+        </div>
+      </section>
+
+      <section id="sec-2" class="content-section glass-panel">
+        <div class="section-image">
+          <img src="assets/images/services/photo-1517245386807-bb43f82c33c4.jpg" alt="Section 2">
+          <div class="section-number">02</div>
+        </div>
+        <div class="section-body">
+          <h3>{{ ('services.ik.sections' | translate)[1].title }}</h3>
+          <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.6;">{{ ('services.ik.sections' |
+            translate)[1].desc }}</p>
+        </div>
+      </section>
+
+      <section id="sec-3" class="content-section glass-panel">
+        <div class="section-image">
+          <img src="assets/images/services/photo-1552664730-d307ca884978.jpg" alt="Section 3">
+          <div class="section-number">03</div>
+        </div>
+        <div class="section-body">
+          <h3>{{ ('services.ik.sections' | translate)[2].title }}</h3>
+          <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.6;">{{ ('services.ik.sections' |
+            translate)[2].desc }}</p>
+        </div>
+      </section>
+
+      <section id="sec-4" class="content-section glass-panel">
+        <div class="section-image">
+          <img src="assets/images/services/photo-1524178232363-1fb2b075b655.jpg" alt="Section 4">
+          <div class="section-number">04</div>
+        </div>
+        <div class="section-body">
+          <h3>{{ ('services.ik.sections' | translate)[3].title }}</h3>
+          <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.6;">{{ ('services.ik.sections' |
+            translate)[3].desc }}</p>
+        </div>
+      </section>
+
+      <section id="sec-5" class="content-section glass-panel">
+        <div class="section-image">
+          <img src="assets/images/services/photo-1573164713988-8665fc963095.jpg" alt="Section 5">
+          <div class="section-number">05</div>
+        </div>
+        <div class="section-body">
+          <h3>{{ ('services.ik.sections' | translate)[4].title }}</h3>
+          <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.6;">{{ ('services.ik.sections' |
+            translate)[4].desc }}</p>
+        </div>
+      </section>
+
+      <section id="sec-6" class="content-section glass-panel">
+        <div class="section-image">
+          <img src="assets/images/services/photo-1460925895917-afdab827c52f.jpg" alt="Section 6">
+          <div class="section-number">06</div>
+        </div>
+        <div class="section-body">
+          <h3>{{ ('services.ik.sections' | translate)[5].title }}</h3>
+          <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.6;">{{ ('services.ik.sections' |
+            translate)[5].desc }}</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<app-services-slider></app-services-slider>

@@ -1,0 +1,39 @@
+<div class="admin-page-header">
+  <h2>Aboneler</h2>
+  <button class="btn-refresh" (click)="loadData()">Yenile</button>
+</div>
+
+<div class="admin-card">
+  @if (isLoading) {
+    <div class="loading-state">Veriler yükleniyor...</div>
+  } @else if (subscribers.length === 0) {
+    <div class="empty-state">Henüz bir e-bülten abonesi bulunmuyor.</div>
+  } @else {
+    <div class="table-responsive">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tarih</th>
+            <th>E-Posta</th>
+            <th>IP Adresi</th>
+            <th>İşlem</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (sub of subscribers; track sub.id) {
+            <tr>
+              <td>#{{ sub.id }}</td>
+              <td>{{ sub.subscribed_at | date:'short' }}</td>
+              <td><a href="mailto:{{ sub.email }}">{{ sub.email }}</a></td>
+              <td>{{ sub.ip_address || '-' }}</td>
+              <td>
+                <button class="btn-delete" (click)="deleteItem(sub.id)">Sil</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

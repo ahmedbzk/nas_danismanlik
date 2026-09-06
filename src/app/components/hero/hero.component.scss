@@ -1,0 +1,120 @@
+.hero {
+  position: relative;
+  width: 100%;
+  padding: 120px 0 80px 0; 
+  min-height: 450px; 
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  overflow: hidden;
+  background-color: #0b131a; 
+  background-image: url('/assets/images/abstract-bg.jpg');
+}
+
+
+.orb {
+  display: none;
+}
+
+.orb-1 {
+  width: 300px;
+  height: 300px;
+  background: rgba(63, 81, 181, 0.5); 
+  top: -100px;
+  left: -50px;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 64, 129, 0.3); 
+  bottom: -150px;
+  right: -100px;
+  animation-delay: -5s;
+}
+
+.hero-overlay {
+  display: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  
+  background: linear-gradient(to right, #ffffff, #e0e0e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+  line-height: 1.6;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+
+.hero-curve {
+  position: absolute;
+  bottom: -1px; 
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 3;
+  
+  svg {
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 40px;
+    fill: var(--color-background, #ffffff); 
+  }
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, -30px) scale(1.1); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 350px;
+    padding: 100px 0 60px 0;
+  }
+  .hero-title { font-size: 2.2rem; }
+  .hero-subtitle { font-size: 1rem; }
+  .orb-1, .orb-2 { width: 200px; height: 200px; }
+}

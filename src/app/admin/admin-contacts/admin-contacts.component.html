@@ -1,0 +1,43 @@
+<div class="admin-page-header">
+  <h2>İletişim Talepleri</h2>
+  <button class="btn-refresh" (click)="loadData()">Yenile</button>
+</div>
+
+<div class="admin-card">
+  @if (isLoading) {
+    <div class="loading-state">Veriler yükleniyor...</div>
+  } @else if (contacts.length === 0) {
+    <div class="empty-state">Henüz bir iletişim talebi bulunmuyor.</div>
+  } @else {
+    <div class="table-responsive">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tarih</th>
+            <th>Ad Soyad</th>
+            <th>E-Posta</th>
+            <th>Konu</th>
+            <th>Mesaj</th>
+            <th>İşlem</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (contact of contacts; track contact.id) {
+            <tr>
+              <td>#{{ contact.id }}</td>
+              <td>{{ contact.created_at | date:'short' }}</td>
+              <td>{{ contact.name }}</td>
+              <td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
+              <td>{{ contact.subject }}</td>
+              <td><div class="truncate-text" [title]="contact.message">{{ contact.message }}</div></td>
+              <td>
+                <button class="btn-delete" (click)="deleteItem(contact.id)">Sil</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

@@ -1,0 +1,36 @@
+      <div class="sidebar-contact">
+        <h4>{{ 'services.sidebarContact.title' | translate }}</h4>
+        <p>{{ 'services.sidebarContact.desc' | translate }}</p>
+
+        <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="field-wrap">
+            <input type="text" formControlName="name"
+              [placeholder]="'services.sidebarContact.name' | translate"
+              class="form-control" [class.is-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+            <span class="field-error" *ngIf="err('name')">{{ err('name') }}</span>
+          </div>
+
+          <div class="field-wrap">
+            <input type="email" formControlName="email"
+              [placeholder]="'services.sidebarContact.email' | translate"
+              class="form-control" [class.is-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+            <span class="field-error" *ngIf="err('email')">{{ err('email') }}</span>
+          </div>
+
+          <div class="field-wrap">
+            <textarea formControlName="message" rows="3"
+              [placeholder]="'services.sidebarContact.msg' | translate"
+              class="form-control" [class.is-invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"></textarea>
+            <span class="field-error" *ngIf="err('message')">{{ err('message') }}</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100" [disabled]="isSubmitting">
+            @if (isSubmitting) {
+              <span class="btn-spinner"></span>
+              Gönderiliyor...
+            } @else {
+              {{ 'services.sidebarContact.send' | translate }}
+            }
+          </button>
+        </form>
+      </div>

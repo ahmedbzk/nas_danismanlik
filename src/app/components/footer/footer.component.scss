@@ -1,0 +1,226 @@
+.footer {
+  background: linear-gradient(to top, #061638 0%, var(--color-primary, #0a2558) 50%, rgba(10, 37, 88, 0.8) 100%);
+  color: #fff;
+  font-family: inherit;
+  margin-top: 0; 
+}
+
+.footer-top {
+  padding: 80px 0 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.footer-col {
+  .footer-title {
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  .title-underline {
+    width: 40px;
+    height: 3px;
+    background: var(--color-secondary, #e81d2a);
+    margin-bottom: 25px;
+  }
+}
+
+.brand-col {
+  .logo-wrapper {
+    display: inline-block;
+    margin-bottom: 25px;
+  }
+  .footer-logo {
+    height: 120px;
+    max-width: 350px;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0) invert(1);
+    transform: scale(1.5);
+    transform-origin: left center;
+  }
+  .footer-desc {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+  .social-links {
+    margin-top: 40px !important;
+  }
+}
+
+.links-col, .services-col {
+  ul {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      margin-bottom: 12px;
+      
+      a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        
+        .arrow {
+          color: var(--color-secondary, #e81d2a);
+          margin-right: 10px;
+          font-size: 1.2rem;
+          transition: transform 0.3s;
+        }
+        
+        &:hover {
+          color: white;
+          padding-left: 5px;
+          .arrow { transform: translateX(3px); }
+        }
+      }
+    }
+  }
+}
+
+.contact-col {
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      
+      .icon {
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+        
+        svg {
+          width: 20px;
+          height: 20px;
+          stroke: white;
+        }
+      }
+      
+      .info {
+        display: flex;
+        flex-direction: column;
+        
+        strong {
+          color: white;
+          font-size: 1rem;
+          margin-bottom: 5px;
+        }
+        
+        span, a {
+          color: rgba(255, 255, 255, 0.7);
+          text-decoration: none;
+          font-size: 0.9rem;
+          line-height: 1.5;
+          transition: color 0.3s;
+        }
+        
+        a:hover {
+          color: var(--color-secondary, #e81d2a);
+        }
+      }
+    }
+  }
+}
+
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.2); 
+  padding: 25px 0;
+  position: relative;
+  
+  .scroll-to-top {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white; 
+    border: 5px solid rgba(0, 0, 0, 0.2); 
+    color: var(--color-primary, #0a2558); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    
+    &:hover {
+      background-color: var(--color-primary, #0a2558);
+      color: white;
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -60%);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+    
+    svg {
+      transition: transform 0.3s;
+    }
+    
+    &:hover svg {
+      transform: translateY(-3px);
+    }
+  }
+
+  
+  .bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+    
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+    
+    p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    
+    .bottom-links {
+      display: flex;
+      gap: 20px;
+      
+      a {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+        
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}

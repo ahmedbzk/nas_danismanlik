@@ -1,0 +1,54 @@
+<app-hero [title]="'galleryPage.hero.title' | translate" [subtitle]="'galleryPage.hero.subtitle' | translate"></app-hero>
+<div class="gallery-page page-padding">
+  <div class="container">
+    <div class="gallery-grid">
+      <div class="title-underline"></div>
+      <p style="margin-top: 1rem; color: var(--color-text-muted); text-align: center;">{{ 'galleryPage.desc' | translate }}</p>
+    </div>
+    
+    <div class="gallery-grid">
+      
+      <div class="gallery-item glass-panel">
+        <div class="image-placeholder" style="background-image: url('assets/images/services/photo-1519567281786-af3b64ce9c4e.jpg');"></div>
+        <div class="item-info">
+          <h3>{{ ('galleryPage.items' | translate)[0].title }}</h3>
+        </div>
+      </div>
+      
+      <div class="gallery-item glass-panel">
+        <div class="image-placeholder" style="background-image: url('assets/images/services/photo-1441986300917-64674bd600d8.jpg');"></div>
+        <div class="item-info">
+          <h3>{{ ('galleryPage.items' | translate)[1].title }}</h3>
+        </div>
+      </div>
+      
+      <div class="gallery-item glass-panel">
+        <div class="image-placeholder" style="background-image: url('assets/images/services/photo-1567449303183-ae0d6ed1498e.jpg');"></div>
+        <div class="item-info">
+          <h3>{{ ('galleryPage.items' | translate)[2].title }}</h3>
+        </div>
+      </div>
+      
+      <div class="gallery-item glass-panel">
+        <div class="image-placeholder" style="background-image: url('assets/images/services/photo-1555529771-835f59bfc50c.jpg');"></div>
+        <div class="item-info">
+          <h3>{{ ('galleryPage.items' | translate)[3].title }}</h3>
+        </div>
+      </div>
+      
+      <div class="gallery-item glass-panel">
+        <div class="image-placeholder" style="background-image: url('assets/images/services/photo-1520694478166-daaaaaec74b4.jpg');"></div>
+        <div class="item-info">
+          <h3>{{ ('galleryPage.items' | translate)[4].title }}</h3>
+        </div>
+      </div>
+      
+      <div class="gallery-item glass-panel">
+        <div class="image-placeholder" style="background-image: url('assets/images/services/photo-1582035985856-114eb1362085.jpg');"></div>
+        <div class="item-info">
+          <h3>{{ ('galleryPage.items' | translate)[5].title }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

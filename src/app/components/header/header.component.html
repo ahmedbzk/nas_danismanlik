@@ -1,0 +1,80 @@
+<header class="header" [class.scrolled]="isScrolled">
+  <div class="container header-container">
+    <a routerLink="/" class="logo">
+      <img src="assets/logos/nasLogo4.png" alt="NAS Danışmanlık Logo" />
+    </a>
+    
+    <div class="mobile-overlay" *ngIf="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
+
+    <nav class="navigation" [class.open]="isMobileMenuOpen">
+      <div class="mobile-menu-header">
+        <a routerLink="/" class="logo" (click)="closeMobileMenu()">
+          
+          <img src="assets/logos/nasLogo4.png" alt="NAS Danışmanlık Logo" class="sidebar-logo" />
+        </a>
+        <button class="close-btn" (click)="closeMobileMenu()">✕</button>
+      </div>
+
+      <ul class="nav-links">
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">{{ 'header.home' | translate }}</a></li>
+        <li class="dropdown" [class.active-mobile]="activeDropdown === 'kurumsal'">
+          <a class="dropdown-toggle" (click)="toggleDropdown('kurumsal')" style="cursor: pointer;">
+            {{ 'header.corporate' | translate }} <span class="arrow" [class.up]="activeDropdown === 'kurumsal'">▼</span>
+          </a>
+          <ul class="dropdown-menu" [class.show-mobile]="activeDropdown === 'kurumsal'">
+            <li><a routerLink="/kurumsal/hakkimizda" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.about' | translate }}</a></li>
+            <li><a routerLink="/kurumsal/sss" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.faq' | translate }}</a></li>
+            <li><a routerLink="/kurumsal/referanslar" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.references' | translate }}</a></li>
+          </ul>
+        </li>
+        <li class="dropdown" [class.active-mobile]="activeDropdown === 'hizmetler'">
+          <a class="dropdown-toggle" (click)="toggleDropdown('hizmetler')" style="cursor: pointer;">
+            {{ 'header.services' | translate }} <span class="arrow" [class.up]="activeDropdown === 'hizmetler'">▼</span>
+          </a>
+          <ul class="dropdown-menu" [class.show-mobile]="activeDropdown === 'hizmetler'">
+            <li><a routerLink="/hizmetler/avm-kiralama" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.service1' | translate }}</a></li>
+            <li><a routerLink="/hizmetler/marka-yatirim" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.service2' | translate }}</a></li>
+            <li><a routerLink="/hizmetler/bayi-franchise" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.service3' | translate }}</a></li>
+            <li><a routerLink="/hizmetler/toptan-satis" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.service4' | translate }}</a></li>
+            <li><a routerLink="/hizmetler/koleksiyon-tasarim" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.service5' | translate }}</a></li>
+            <li><a routerLink="/hizmetler/proje-cizimi" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.service6' | translate }}</a></li>
+            <li><a routerLink="/hizmetler/gorsel-danismanlik" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.service7' | translate }}</a></li>
+            <li><a routerLink="/hizmetler/insan-kaynaklari" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.service8' | translate }}</a></li>
+            <li><a routerLink="/hizmetler/it-altyapi" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.service9' | translate }}</a></li>
+          </ul>
+        </li>
+        <!-- <li><a routerLink="/galeri" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.gallery' | translate }}</a></li> -->
+        <li><a routerLink="/iletisim" routerLinkActive="active" (click)="closeMobileMenu()">{{ 'header.contact' | translate }}</a></li>
+      </ul>
+      
+      <div class="sidebar-lang-selector">
+        <button class="lang-btn" [class.active]="lang() === 'tr'" (click)="setLang('tr')" title="Türkçe">
+          <img src="assets/flags/turkey.png" alt="TR" />
+        </button>
+        <button class="lang-btn" [class.active]="lang() === 'en'" (click)="setLang('en')" title="English">
+          <img src="assets/flags/england.png" alt="EN" />
+        </button>
+      </div>
+      
+      <div class="sidebar-footer">
+        <div class="progress-line"></div>
+        <p class="company-name">NAS Danışmanlık (Business Development)</p>
+        <a href="mailto:info@nasdanismanlik.com" class="contact-email">info&#64;nasdanismanlik.com</a>
+      </div>
+    </nav>
+    
+    <div class="header-actions">
+      <div class="language-selector">
+        <button class="lang-btn" [class.active]="lang() === 'tr'" (click)="setLang('tr')" title="Türkçe">
+          <img src="assets/flags/turkey.png" alt="TR" />
+        </button>
+        <button class="lang-btn" [class.active]="lang() === 'en'" (click)="setLang('en')" title="English">
+          <img src="assets/flags/england.png" alt="EN" />
+        </button>
+      </div>
+      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Menüyü Aç">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

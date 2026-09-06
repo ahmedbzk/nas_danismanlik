@@ -1,0 +1,23 @@
+<app-hero [title]="'faqPage.hero.title' | translate" [subtitle]="'faqPage.hero.subtitle' | translate"></app-hero>
+
+<div class="page-wrapper">
+  <div class="page-padding container">
+    <div class="faq-list">
+      @for (faq of faqsData; track faq.question; let i = $index) {
+        <div class="faq-card glass-panel" [class.is-open]="faqsState[i]" (click)="toggleFaq(i)">
+          <div class="faq-header">
+            <h3>{{ faq.question }}</h3>
+            <div class="toggle-icon">
+              <svg *ngIf="!faqsState[i]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <svg *ngIf="faqsState[i]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+          </div>
+          
+          <div class="faq-body" [class.show]="faqsState[i]">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

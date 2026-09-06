@@ -1,0 +1,186 @@
+<app-hero [title]="'aboutPage.hero.title' | translate" [subtitle]="'aboutPage.hero.subtitle' | translate"></app-hero>
+
+<div class="page-wrapper">
+  
+  
+  <div class="page-padding container">
+    
+    <section class="intro-section fade-in">
+      <div class="intro-content">
+        <h2 class="section-title">{{ 'aboutPage.intro.title' | translate }}</h2>
+        <p class="lead-text">
+          {{ 'aboutPage.intro.p1' | translate }}
+        </p>
+      </div>
+    </section>
+
+    <section class="founder-section fade-in">
+      <div class="founder-split-card">
+        
+        <div class="founder-image-area">
+          <img src="assets/marka/ekip.jpeg" alt="İhsan Kazdal" class="founder-photo-seamless">
+          <div class="founder-logo-area">
+            <img src="assets/logos/nasLogo4.png" alt="Nas Danışmanlık" class="founder-logo">
+          </div>
+        </div>
+        
+        <div class="founder-content-area">
+          <span class="founder-title">{{ 'aboutPage.founder.title' | translate }}</span>
+          <h3 class="founder-name">İhsan Kazdal</h3>
+          
+          <h4 class="founder-heading">{{ 'aboutPage.founder.heading' | translate }}</h4>
+          
+          <p class="highlight-text">{{ 'aboutPage.founder.p1' | translate }}</p>
+          <p class="standard-text">{{ 'aboutPage.founder.p2' | translate }}</p>
+          
+          <div class="expertise-section">
+            <h5 class="expertise-title">
+              {{ 'aboutPage.founder.subheading' | translate }}
+            </h5>
+            
+            <div class="expertise-tags">
+              @for (service of ('aboutPage.founder.services' | translate); track $index) {
+                <div class="expertise-tag">
+                  <span class="tag-dot"></span>
+                  {{ service }}
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    
+    <section class="vision-mission-grid mt-5 position-relative">
+      <div class="glass-card hover-lift text-center">
+        <div class="card-icon-wrapper mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" opacity="0.4"/></svg>
+        </div>
+        <h3 class="card-title">{{ 'aboutPage.vision.title' | translate }}</h3>
+        <p class="card-text">
+          {{ 'aboutPage.vision.desc' | translate }}
+        </p>
+      </div>
+
+      
+      <div class="bridge-element d-none d-md-flex">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8l4 4-4 4"></path><path d="M3 12h18"></path></svg>
+      </div>
+
+      <div class="glass-card hover-lift text-center">
+        <div class="card-icon-wrapper mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        </div>
+        <h3 class="card-title">{{ 'aboutPage.mission.title' | translate }}</h3>
+        <p class="card-text">
+          {{ 'aboutPage.mission.desc' | translate }}
+        </p>
+      </div>
+    </section>
+  </div> 
+
+  
+  <section #statsSection class="stats-section full-width-section">
+    <div class="container">
+      <div class="stats-grid">
+        @for (stat of stats; track stat.id; let i = $index) {
+          <div class="stat-card">
+            <div class="stat-number-wrapper">
+              <span class="stat-number">{{stat.current}}</span>
+              <span class="stat-suffix">{{stat.suffix}}</span>
+            </div>
+            <div class="stat-label">{{ ('aboutPage.stats' | translate)[i].label }}</div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  
+  <div class="page-padding container">
+    <section class="why-us-section mt-5 glass-panel mb-5">
+      <div class="section-header text-center">
+        <h2 class="section-title mt-2">{{ 'aboutPage.whyUs.title' | translate }}</h2>
+        <p class="section-subtitle">{{ 'aboutPage.whyUs.subtitle' | translate }}</p>
+      </div>
+
+      <div class="features-grid expanded-grid">
+        
+        
+        <div class="feature-box color-blue">
+          <div class="feature-icon-container">
+            <div class="icon-bg"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div class="feature-content">
+            <h4>{{ ('aboutPage.whyUs.items' | translate)[0].title }}</h4>
+            <p>{{ ('aboutPage.whyUs.items' | translate)[0].desc }}</p>
+          </div>
+        </div>
+
+        
+        <div class="feature-box color-orange">
+          <div class="feature-icon-container">
+            <div class="icon-bg"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <div class="feature-content">
+            <h4>{{ ('aboutPage.whyUs.items' | translate)[1].title }}</h4>
+            <p>{{ ('aboutPage.whyUs.items' | translate)[1].desc }}</p>
+          </div>
+        </div>
+
+        
+        <div class="feature-box color-purple">
+          <div class="feature-icon-container">
+            <div class="icon-bg"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+          </div>
+          <div class="feature-content">
+            <h4>{{ ('aboutPage.whyUs.items' | translate)[2].title }}</h4>
+            <p>{{ ('aboutPage.whyUs.items' | translate)[2].desc }}</p>
+          </div>
+        </div>
+
+        
+        <div class="feature-box color-green">
+          <div class="feature-icon-container">
+            <div class="icon-bg"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </div>
+          <div class="feature-content">
+            <h4>{{ ('aboutPage.whyUs.items' | translate)[3].title }}</h4>
+            <p>{{ ('aboutPage.whyUs.items' | translate)[3].desc }}</p>
+          </div>
+        </div>
+
+        
+        <div class="feature-box color-red">
+          <div class="feature-icon-container">
+            <div class="icon-bg"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <div class="feature-content">
+            <h4>{{ ('aboutPage.whyUs.items' | translate)[4].title }}</h4>
+            <p>{{ ('aboutPage.whyUs.items' | translate)[4].desc }}</p>
+          </div>
+        </div>
+
+        
+        <div class="feature-box color-teal">
+          <div class="feature-icon-container">
+            <div class="icon-bg"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <div class="feature-content">
+            <h4>{{ ('aboutPage.whyUs.items' | translate)[5].title }}</h4>
+            <p>{{ ('aboutPage.whyUs.items' | translate)[5].desc }}</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>

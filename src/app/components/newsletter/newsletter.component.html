@@ -1,0 +1,39 @@
+<div class="newsletter-wrapper">
+  <div class="newsletter-card premium-glass">
+    <div class="newsletter-content">
+      <div class="text-section">
+        <div class="icon-circle">
+          <i class="fas fa-envelope-open-text"></i>
+        </div>
+        <div class="text-content">
+          <h3>{{ 'newsletter.title' | translate }}</h3>
+          <p>{{ 'newsletter.desc' | translate }}</p>
+        </div>
+      </div>
+      
+      <div class="form-section">
+        <form (ngSubmit)="onSubmit()" class="newsletter-form">
+          <div class="input-group">
+            <i class="fas fa-paper-plane input-icon"></i>
+            <input 
+              type="email" 
+              [(ngModel)]="email" 
+              name="email"
+              [placeholder]="'newsletter.placeholder' | translate" 
+              required 
+              [disabled]="isSubmitting"
+            />
+          </div>
+          <button type="submit" [disabled]="isSubmitting || !email" class="premium-btn">
+            @if (isSubmitting) {
+              <div class="spinner"></div>
+            } @else {
+              <span>{{ 'newsletter.button' | translate }}</span>
+              <i class="fas fa-arrow-right"></i>
+            }
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

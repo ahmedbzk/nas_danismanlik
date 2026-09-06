@@ -1,0 +1,22 @@
+<div class="fab-container" [class.open]="isOpen" (mouseenter)="isOpen = true" (mouseleave)="isOpen = false">
+  <div class="fab-menu">
+    <a href="https://wa.me/905302907764" target="_blank" class="fab-item whatsapp" title="WhatsApp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+    <a href="https://www.instagram.com/nas_danismanlik/" target="_blank" class="fab-item instagram" title="Instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" />
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61593836905712" target="_blank" class="fab-item facebook" title="Facebook">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook" />
+    </a>
+  </div>
+  <button class="fab-main" (click)="toggleFab()">
+    <span class="icon" [class.rotate]="isOpen">
+      
+      <img src="assets/logos/nasLogo3.png" alt="NAS" class="fab-logo" onerror="this.src='assets/logos/nasLogoBeyaz.jpg'" />
+    </span>
+    @if (!isOpen) {
+      <span class="badge">3</span>
+    }
+  </button>
+</div>

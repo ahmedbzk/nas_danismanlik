@@ -1,0 +1,14 @@
+@if (!isAdminRoute) {
+  <app-header></app-header>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+  @if (!isHomePage) {
+    <app-newsletter></app-newsletter>
+  }
+  <app-footer></app-footer>
+  <app-social-fab></app-social-fab>
+} @else {
+  <router-outlet></router-outlet>
+}
+<app-toast></app-toast>
