@@ -16,9 +16,14 @@
 
     <section class="founder-section fade-in">
       <div class="founder-split-card">
-        
         <div class="founder-image-area">
-          <img src="assets/marka/ekip.jpeg" alt="İhsan Kazdal" class="founder-photo-seamless">
+          <div class="carousel-image-wrapper">
+            <img [src]="currentTeamImage" alt="İhsan Kazdal" class="founder-photo-seamless" [class.fading]="isFading">
+            <div class="carousel-dots">
+              <span class="dot" [class.active]="currentImageIndex === 0" (click)="setTeamImage(0)"></span>
+              <span class="dot" [class.active]="currentImageIndex === 1" (click)="setTeamImage(1)"></span>
+            </div>
+          </div>
           <div class="founder-logo-area">
             <img src="assets/logos/nasLogo4.png" alt="Nas Danışmanlık" class="founder-logo">
           </div>

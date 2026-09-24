@@ -23,8 +23,39 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
   
   private observer: IntersectionObserver | null = null;
   private hasAnimated = false;
+  
+  teamImages = ['assets/marka/ekip1.png', 'assets/marka/ekip2.png'];
+  currentImageIndex = 0;
+  currentTeamImage = this.teamImages[0];
+  private imageInterval: any;
+  isFading = false;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.startImageInterval();
+  }
+
+  startImageInterval() {
+    if (this.imageInterval) {
+      clearInterval(this.imageInterval);
+    }
+    this.imageInterval = setInterval(() => {
+      this.setTeamImage((this.currentImageIndex + 1) % this.teamImages.length);
+    }, 10000);
+  }
+
+  setTeamImage(index: number) {
+    if (this.currentImageIndex === index) return;
+    
+    this.isFading = true;
+    
+    setTimeout(() => {
+      this.currentImageIndex = index;
+      this.currentTeamImage = this.teamImages[index];
+      this.isFading = false;
+    }, 300);
+    
+    this.startImageInterval(); // Reset timer when clicked manually
+  }
 
   ngAfterViewInit(): void {
     if (typeof IntersectionObserver !== 'undefined') {
@@ -64,6 +95,9 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.observer) {
       this.observer.disconnect();
+    }
+    if (this.imageInterval) {
+      clearInterval(this.imageInterval);
     }
   }
 }

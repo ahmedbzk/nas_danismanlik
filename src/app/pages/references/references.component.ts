@@ -19,6 +19,7 @@ import { TranslatePipe } from '../../i18n/translate.pipe';
         <div class="ref-card has-badge"><span class="franchise-badge">Franchise - {{ 'referencesPage.dealer' | translate }}</span><img src="assets/marka/Mavi.png" alt="Mavi"></div>
         <div class="ref-card"><img src="assets/marka/Sofuoglu.jpeg" alt="Sofuoglu"></div>
         <div class="ref-card"><img src="assets/marka/markamarkalogo.svg" alt="Markamarka"></div>
+        <div class="ref-card"><img src="assets/marka/smart_play.jpeg" alt="Smart Play"></div>
       </div>
 
       <div class="projects-section">
@@ -100,6 +101,62 @@ import { TranslatePipe } from '../../i18n/translate.pipe';
               <p><i class="icon-map-pin"></i> Iğdır / Merkez</p>
             </div>
           </div>
+
+          <div class="project-card">
+            <div class="project-img"><img src="assets/marka/Balıkesir Avlu-Smart_Play.jpeg" alt="Smart Play Balıkesir Avlu"></div>
+            <div class="project-info">
+              <h4>Smart Play</h4>
+              <p><i class="icon-map-pin"></i> Balıkesir / Avlu AVM</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img"><img src="assets/marka/Bursa Korupark-Smart_Play.jpeg" alt="Smart Play Bursa Korupark"></div>
+            <div class="project-info">
+              <h4>Smart Play</h4>
+              <p><i class="icon-map-pin"></i> Bursa / Korupark AVM</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img"><img src="assets/marka/City's Kozyatağı AVM-Smart_Play.jpeg" alt="Smart Play City's Kozyatağı"></div>
+            <div class="project-info">
+              <h4>Smart Play</h4>
+              <p><i class="icon-map-pin"></i> İstanbul / City's Kozyatağı AVM</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img"><img src="assets/marka/Izmir Park Bornova-Smart_Play.jpeg" alt="Smart Play İzmir Park Bornova"></div>
+            <div class="project-info">
+              <h4>Smart Play</h4>
+              <p><i class="icon-map-pin"></i> İzmir / Park Bornova AVM</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img"><img src="assets/marka/Kesan Bendis AVM-Smart_Play.jpeg" alt="Smart Play Keşan Bendis"></div>
+            <div class="project-info">
+              <h4>Smart Play</h4>
+              <p><i class="icon-map-pin"></i> Edirne / Keşan Bendis AVM</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img"><img src="assets/marka/Mall of İstanbul-Smart_Play.jpeg" alt="Smart Play Mall of İstanbul"></div>
+            <div class="project-info">
+              <h4>Smart Play</h4>
+              <p><i class="icon-map-pin"></i> İstanbul / Mall of İstanbul</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img"><img src="assets/marka/Torıum AVM-Smart_Play.jpeg" alt="Smart Play Torium AVM"></div>
+            <div class="project-info">
+              <h4>Smart Play</h4>
+              <p><i class="icon-map-pin"></i> İstanbul / Torium AVM</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -111,10 +168,10 @@ import { TranslatePipe } from '../../i18n/translate.pipe';
     .desc { color: var(--color-text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6; }
     .page-padding { padding-bottom: 100px; margin-bottom: 50px; }
     
-    .ref-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-bottom: 80px; }
-    @media (min-width: 768px) { .ref-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (min-width: 992px) { .ref-grid { grid-template-columns: repeat(5, 1fr); } }
-    .ref-card { position: relative; background: white; border-radius: 12px; padding: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05); height: 140px; overflow: hidden; }
+    .ref-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 80px; }
+    .ref-card { width: calc(50% - 15px); position: relative; background: white; border-radius: 12px; padding: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05); height: 140px; overflow: hidden; }
+    @media (min-width: 768px) { .ref-card { width: calc(33.333% - 20px); } }
+    @media (min-width: 992px) { .ref-card { width: calc(20% - 24px); } }
     .ref-card img { max-width: 100%; max-height: 100%; object-fit: contain; }
     .ref-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
     .franchise-badge {
