@@ -361,7 +361,10 @@ export const TR = {
       desc: 'Markalarımız için farklı bölgelerde hayata geçirdiğimiz referans mağaza projelerimiz.'
     },
     franchiseDealer: 'Franchise Bayi',
-    dealer: 'Bayi'
+    dealer: 'Bayi',
+    constructionProject: 'İnşaat Projesi',
+    villaProject: 'Villa Projesi',
+    inspectDetail: 'Detayları İncele'
   },
   galleryPage: {
     hero: {

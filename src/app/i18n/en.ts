@@ -361,7 +361,10 @@ export const EN = {
       desc: 'Reference store projects we have realized for our brands in different regions.'
     },
     franchiseDealer: 'Franchise Dealer',
-    dealer: 'Dealer'
+    dealer: 'Dealer',
+    constructionProject: 'Construction Project',
+    villaProject: 'Villa Project',
+    inspectDetail: 'View Details'
   },
   galleryPage: {
     hero: {
